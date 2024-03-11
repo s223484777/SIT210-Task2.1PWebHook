@@ -21,4 +21,6 @@ The loop has a 1000ms delay whenever a read fails to prevent the sensor from get
 ## Usage
 The `arduino_secrets.h` file needs to contain the SSID (and password, if needed) for the WiFi network and the device key from Arduino Cloud. Additionally, two cloud variables will be defined on the Arduino Cloud with an update period of 30 seconds. We then need to add a WebHook (I have used Zapier) that is configured to call the ThingSpeak API with the updated variables.
 
+The `thingProperties.h` file also needs to be updated with the correct `DEVICE_LOGIN_NAME[]`.
+
 Set `updateTimeout` to the milliseconds between each update, for example 30000 for 30 seconds.

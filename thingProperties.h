@@ -3,7 +3,7 @@
 #include <ArduinoIoTCloud.h>
 #include <Arduino_ConnectionHandler.h>
 
-const char DEVICE_LOGIN_NAME[]  = "084ef199-7cd8-430d-b457-b23eff357950";
+const char DEVICE_LOGIN_NAME[]  = ""; // Device ID for the Arduino Cloud device.
 
 const char SSID[]               = SECRET_SSID;    // Network SSID (name)
 const char PASS[]               = SECRET_OPTIONAL_PASS;    // Network password (use for WPA, or use as key for WEP)
