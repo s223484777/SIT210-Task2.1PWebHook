@@ -9,7 +9,7 @@ Connect the DHT11 temperature and humidity sensor to VCC, GND, and connect the D
 ## How it Works
 
 The first key function is the `WiFiCheck()` function, which ensures WiFi is connected whenever called. The function is called before any ThingSpeak calls.
-```
+```cpp
 void WiFiCheck(){
   while(WiFi.status() != WL_CONNECTED){
     Serial.print("Connecting to ");
@@ -28,7 +28,7 @@ The other key function is the `update()` function, which is in charge of reading
 A `while(...){...}` loop is used to reread the sensor until both a valid temperature and a valid humidity are read.
 A `do{...}while(...);` loop is used to attempt to push the updated readings to ThingSpeak, or print the status code if an error occurs (see status code table below).
 The readings are cast to integers to better show changes on the ThingSpeak graphs, however the float value can also be used.
-```
+```cpp
 void update(){
   float temp = dht.readTemperature();
   float rH = dht.readHumidity();
@@ -57,7 +57,7 @@ void update(){
 
 The main code loop simply calls `update()` every interval (set by the `updateTimeout` value). It works by checking if the interval has passed, in which case it will increase `lastUpdate` by the time interval and then calls the `update()` function.
 `lastUpdate` is increased by `updateTimeout` to try to ensure the correct number of updates even if an error has to be handled.
-```
+```cpp
   if(millis() - lastUpdate >= updateTimeout){
     lastUpdate += updateTimeout;
     update();
